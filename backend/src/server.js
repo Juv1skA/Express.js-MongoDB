@@ -3,9 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// use CORS middleware
-app.use(cors());
-
 // create instance of express
 const app = express();
 
@@ -26,9 +23,12 @@ db.once('open', () => {
 
 // Define Mongoose schema and model (as shown in the previous answer)
 
-// Example API routes
+// routes
 app.use(express.json());
-app.use('/api', userRoutes);
+app.use('/contactRoutes.js', async (req, res) => {
+    console.log('test')
+});
+app.use(cors());
 
 // Create a new user
 app.post('/api/users', async (req, res) => {
@@ -69,6 +69,7 @@ app.get('/', (req, res) => {
     // send response when route is accessed
     res.send('Hello world!');
 });
+
 
 // start server
 app.listen(PORT, () => {
