@@ -28,6 +28,7 @@ db.once('open', () => {
 
 // Example API routes
 app.use(express.json());
+app.use('/api', userRoutes);
 
 // Create a new user
 app.post('/api/users', async (req, res) => {
